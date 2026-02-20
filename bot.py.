@@ -1,0 +1,25 @@
+import os
+import time
+import requests
+
+# جلب المفاتيح من إعدادات Render (Environment Variables) للأمان
+# لا تضع مفاتيحك الحقيقية هنا مباشرة
+API_KEY = os.getenv('CAPITAL_API_KEY')
+IDENTIFIER = os.getenv('CAPITAL_USER_ID')
+
+def get_crypto_prices():
+    print("جاري سحب أسعار العملات الرقمية من Capital.com...")
+    # هنا نضع رابط الـ API الخاص بالمنصة (تجريبي)
+    # ملاحظة: الكود يفترض وجود المفاتيح في إعدادات Render
+    if not API_KEY:
+        print("خطأ: لم يتم العثور على مفتاح API. تأكد من إضافته في Render Environment.")
+        return
+
+    # مثال بسيط لطباعة الوقت والسعر (هذا هيكل تجريبي)
+    print(f"تم الاتصال بنجاح. الوقت الحالي: {time.ctime()}")
+    print("البيتكوين (BTC/USD): جاري التحديث...")
+
+if __name__ == "__main__":
+    while True:
+        get_crypto_prices()
+        time.sleep(60)  # التحديث كل دقيقة
